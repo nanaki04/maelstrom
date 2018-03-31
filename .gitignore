@@ -1,4 +1,5 @@
 .idea*
 tags
 *.swp
+*.DS*
 packages*
