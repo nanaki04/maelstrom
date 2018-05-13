@@ -2,8 +2,8 @@
 
 module WellGuardians =
   
-  let watcher<'T, 'R> finder runner =
-    fun next well ->
+  let watcher<'T, 'R when 'R : equality> (finder : 'T -> 'R) runner =
+    fun (next : Well<'T> -> Well<'T>) (well : Well<'T>) ->
       next well
       |> fun refreshedWell -> (finder refreshedWell, refreshedWell)
       |> fun (result, refreshedWell) -> (result, refreshedWell, result = finder well)
@@ -11,5 +11,5 @@ module WellGuardians =
       | (_, refreshedWell, true) ->
         refreshedWell
       | (result, refreshedWell, _) ->
-        runner result refreshedWell |> ignore
+        runner result refreshedWell
         refreshedWell

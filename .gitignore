@@ -3,3 +3,5 @@ tags
 *.swp
 *.DS*
 packages*
+bin
+obj

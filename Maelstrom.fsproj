@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="AssemblyInfo.fs" />
     <Compile Include="Types.fs" />
+    <Compile Include="Reflection.fs" />
     <Compile Include="Well.fs" />
     <Compile Include="Maelstrom.fs" />
     <Compile Include="WellGuardians.fs" />
