@@ -89,6 +89,9 @@ module Mealstrom =
       let guardianId = idGenerator.Next ()
       enqueue <| guard guardianId wellGuardian
       fun () -> enqueue <| unguard guardianId
+      
+    member m.Fetch () =
+      maelstrom
           
   let invoke<'W, 'A> lifewell tides ripples guardians =
     let maelstrom = {
@@ -100,4 +103,4 @@ module Mealstrom =
     }
     
     let waveManager = new WaveManager<'W, 'A> (maelstrom)
-    (waveManager.Flow, waveManager.Guard)
+    (waveManager.Flow, waveManager.Fetch, waveManager.Guard)
