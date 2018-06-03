@@ -91,7 +91,8 @@ module Mealstrom =
       fun () -> enqueue <| unguard guardianId
       
     member m.Fetch () =
-      maelstrom
+      let { lifewell = well } = maelstrom
+      well
           
   let invoke<'W, 'A> lifewell tides ripples guardians =
     let maelstrom = {
